@@ -1,12 +1,5 @@
 import os
 
-def write_file(working_dir, file_path, content):
-    abs_working_dir = os.path.abspath(working_dir)
-    if os.path.exists(abs_working_dir):
-        pass
-
-import os
-
 def write_file(working_directory, file_path, content):
     """
     Writes content to a file within a permitted working directory.
