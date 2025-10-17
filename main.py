@@ -27,6 +27,12 @@ def main():
 
         client = genai.Client(api_key=api_key)
 
+        available_functions = types.Tool(
+                funtion_declarations=[
+                    schema_get_files_info,
+                    ]
+                )
+
         response = client.models.generate_content(
             model='gemini-2.0-flash-001',
             contents=messages,
@@ -34,12 +40,6 @@ def main():
                 tools=[available_functions], system_instruction=system_prompt
                 )
         )       
-
-        available_functions = types.Tool(
-                funtion_declarations=[
-                    schema_get_files_info,
-                    ]
-                )
 
         if len(sys.argv) > 2:
             if sys.argv[2] == "--verbose":
